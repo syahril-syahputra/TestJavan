@@ -12,7 +12,7 @@ const get = async (req, res) => {
 const add = async (req, res) => {
   // console.log(req.body)
   try {
-    const query = `insert into assets (titleAssets) value ('${req.body.title}')`;
+    const query = `insert into assets (titleAssets, price) value ('${req.body.title}', '${req.body.price}')`;
     req.db.query(query, function (err, data) {
       if (err) throw err;
 
@@ -25,7 +25,7 @@ const add = async (req, res) => {
 };
 const edit = async (req, res) => {
   try {
-    const query = `update assets set titleAssets='${req.body.title}' where idAssets=${req.params.id}`;
+    const query = `update assets set titleAssets='${req.body.title}', price='${req.body.price}' where idAssets=${req.params.id}`;
     req.db.query(query, function (err, data) {
       if (err) throw err;
       res.json(data);
@@ -38,6 +38,7 @@ const del = async (req, res) => {
   try {
     const query = `delete from assets where idAssets=${req.params.id}`;
     req.db.query(query, function (err, data) {
+      req.db.query(`delete from people_assets where idAsset=${req.params.id}`);
       if (err) throw err;
       res.json(data);
     });

@@ -14,6 +14,11 @@
                   label="Asset Name*"
                   required
                 ></v-text-field>
+                <v-text-field
+                  v-model="price"
+                  label="Asset Price*"
+                  required
+                ></v-text-field>
               </v-col>
             </v-row>
             <v-alert type="error" v-if="error.length > 0">{{ error }}</v-alert>
@@ -52,11 +57,16 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  oldPrice: {
+    type: Number,
+    default: 0,
+  },
 });
 const isVisible = ref(props.visible);
 const error = ref("");
 
 const name = ref("");
+const price = ref(0);
 
 watch(
   () => props.visible,
@@ -64,6 +74,7 @@ watch(
     isVisible.value = newVal;
     if (newVal) {
       name.value = props.oldName;
+      price.value = props.oldPrice;
     }
   }
 );
@@ -76,9 +87,13 @@ const validate = () => {
     error.value = "Your Name to short";
     return;
   }
-
+  if (isNaN(price.value)) {
+    error.value = "Price must a number";
+    return;
+  }
   emit("send", {
     title: name.value,
+    price: price.value,
   });
 };
 </script>

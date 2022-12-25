@@ -19,6 +19,7 @@
           <tr>
             <th class="text-left">No</th>
             <th class="text-left">Name</th>
+            <th class="text-left">Total Assets</th>
             <th class="text-left">List Asset</th>
             <th class="text-left"></th>
           </tr>
@@ -27,14 +28,15 @@
           <tr v-for="(item, index) in proses.result" :key="item.id">
             <td>{{ index + 1 }}</td>
             <td>{{ item.name }}</td>
+            <td align="right">{{ item.total || 0 }}</td>
             <td>
-              <v-chip
-                closable
-                v-for="asset in item.data_assets"
-                class="mr-2"
-                @click:close="deleteAssets(asset.idPeopleAssets)"
-              >
+              <v-chip v-for="asset in item.data_assets" class="mr-2">
                 {{ asset.titleAssets }}
+                <v-icon
+                  icon="mdi-delete"
+                  class="ml-2"
+                  @click="deleteAssets(asset.idPeopleAssets)"
+                ></v-icon>
               </v-chip>
             </td>
             <td>
@@ -92,10 +94,11 @@ const refreshData = async () => {
   proses.isLoading = isFetching.value;
   proses.error = error.value || "";
   proses.result = data.value.map(
-    (item: { id: any; name: any; data_assets: any }) => {
+    (item: { id: any; total: any; name: any; data_assets: any }) => {
       return {
         id: item.id,
         name: item.name,
+        total: item.total,
         data_assets: JSON.parse(item.data_assets),
       };
     }

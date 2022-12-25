@@ -14,6 +14,11 @@
                   label="Asset Name*"
                   required
                 ></v-text-field>
+                <v-text-field
+                  v-model="price"
+                  label="Asset Price*"
+                  required
+                ></v-text-field>
               </v-col>
             </v-row>
             <v-alert type="error" v-if="error.length > 0">{{ error }}</v-alert>
@@ -52,6 +57,7 @@ const isVisible = ref(props.visible);
 const error = ref("");
 
 const name = ref("");
+const price = ref(0);
 
 watch(
   () => props.visible,
@@ -71,9 +77,13 @@ const validate = () => {
     error.value = "Asset Name to short";
     return;
   }
-
+  if (isNaN(price.value)) {
+    error.value = "Price must a number";
+    return;
+  }
   emit("send", {
     title: name.value,
+    price: price.value,
   });
 };
 </script>

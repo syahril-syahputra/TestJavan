@@ -28,12 +28,14 @@
           <tr>
             <th class="text-left">No</th>
             <th class="text-left">Asset Name</th>
+            <th class="text-right">Asset Price</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(item, index) in proses.result" :key="item.idAssets">
             <td>{{ index + 1 }}</td>
             <td>{{ item.titleAssets }}</td>
+            <td align="right">{{ item.price }}</td>
             <td>
               <v-btn
                 prepend-icon="mdi-delete"
@@ -75,6 +77,7 @@
       :visible="isShowFormEdit"
       :listPeople="proses.result"
       :old-name="selectedName"
+      :old-price="selectedPrice"
       @close="isShowFormEdit = false"
       @send="updateData"
     ></FormAssetEdit>
@@ -90,6 +93,7 @@ const messageAlert = ref("");
 const isConfirmShow = ref(false);
 const selectedId = ref(0);
 const selectedName = ref("");
+const selectedPrice = ref(0);
 const isShowFormEdit = ref(false);
 const proses = reactive({
   isLoading: true,
@@ -162,5 +166,6 @@ const editData = (data: any) => {
   isShowFormEdit.value = true;
   selectedId.value = data.idAssets;
   selectedName.value = data.titleAssets;
+  selectedPrice.value = data.price;
 };
 </script>

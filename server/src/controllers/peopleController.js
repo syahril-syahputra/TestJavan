@@ -47,7 +47,7 @@ const del = async (req, res) => {
 };
 const detail = async (req, res) => {
   try {
-    const query = `select p.id, p.name , od.data_assets  from people p left join owner_detail od  on p.id = od.id `;
+    const query = `select p.id, p.name , od.data_assets, od.total  from people p left join owner_detail od  on p.id = od.id `;
     req.db.query(query, function (err, data) {
       if (err) throw err;
       res.json(data);
