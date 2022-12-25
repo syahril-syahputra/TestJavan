@@ -9,4 +9,12 @@ export default defineNuxtConfig({
             'process.env.DEBUG': false,
         },
     },
+    modules: [
+        '@vueuse/nuxt',
+    ],
+    runtimeConfig: {
+        public: {
+            baseURL: process.env.BASE_URL,
+        },
+    },
 })

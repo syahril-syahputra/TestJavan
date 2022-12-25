@@ -1,6 +1,6 @@
 const get = async (req, res) => {
   try {
-    const query = "select * from people order by id asc";
+    const query = "select * from all_people order by id asc";
     req.db.query(query, function (err, data) {
       if (err) throw err;
       res.json(data);
@@ -36,7 +36,7 @@ const edit = async (req, res) => {
 };
 const del = async (req, res) => {
   try {
-    const query = `delete from people where id=${req.params.id}`;
+    const query = `delete from people where id=${req.params.id} or parent=${req.params.id}`;
     req.db.query(query, function (err, data) {
       if (err) throw err;
       res.json(data);

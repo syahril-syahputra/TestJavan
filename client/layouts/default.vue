@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { useTheme } from "vuetify";
-const drawer = ref(false);
+const drawer = ref(true);
 const isDark = ref(false);
 
 watch(isDark, async (newVal, oldVal) => {
@@ -60,7 +60,8 @@ const theme = useTheme();
 
 const items = ref([
   { route: "/", title: "People", icon: "mdi-account-multiple" },
-  { route: "/assets", title: "Asset", icon: "mdi-tablet-cellphone" },
+  { route: "assets", title: "Asset", icon: "mdi-tablet-cellphone" },
+  { route: "testing", title: "Testing", icon: "mdi-tablet-cellphone" },
 ]);
 
 const testing = () => {
