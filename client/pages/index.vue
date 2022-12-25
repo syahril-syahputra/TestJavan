@@ -70,6 +70,9 @@
     <dialog-alert :visible="isAlertShow" :message="messageAlert"></dialog-alert>
     <dialog-confirm
       :visible="isConfirmShow"
+      title="Are you sure want to delete this person?"
+      message="all data from this person will be deleted including the child's
+          data."
       @close="isConfirmShow = false"
       @yes="doDelete"
     ></dialog-confirm>

@@ -3,12 +3,9 @@
     <v-dialog v-model="isVisible" persistent>
       <v-card>
         <v-card-title class="text-h5 text-center">
-          Are you sure want to delete this person?
+          {{ title }}
         </v-card-title>
-        <v-card-text class="text-center"
-          >all data from this person will be deleted including the child's
-          data.</v-card-text
-        >
+        <v-card-text class="text-center">{{ message }}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green-darken-1" variant="text" @click="$emit('close')">

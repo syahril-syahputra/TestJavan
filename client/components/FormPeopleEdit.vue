@@ -11,7 +11,7 @@
               <v-col cols="Name">
                 <v-text-field
                   v-model="name"
-                  label="Legal first name*"
+                  label="Your Name*"
                   required
                 ></v-text-field>
               </v-col>

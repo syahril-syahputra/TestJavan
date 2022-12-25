@@ -12,6 +12,7 @@ app.use(cors());
 
 const db = require("./middleware/db");
 const routePeople = require("./routes/people");
+const routeAssets = require("./routes/assets");
 
 app.get("/", (req, res) => {
   res.send(
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/people", db, routePeople);
+app.use("/assets", db, routeAssets);
 
 const port = process.env.API_PORT;
 app.listen(port, () => console.log(`Server started, listening port: ${port}`));
