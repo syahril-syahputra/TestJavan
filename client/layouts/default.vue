@@ -60,8 +60,8 @@ const theme = useTheme();
 
 const items = ref([
   { route: "/", title: "People", icon: "mdi-account-multiple" },
-  { route: "assets", title: "Asset", icon: "mdi-tablet-cellphone" },
-  { route: "testing", title: "Testing", icon: "mdi-tablet-cellphone" },
+  { route: "/assets", title: "Asset", icon: "mdi-tablet-cellphone" },
+  { route: "/setup", title: "Asset People", icon: "mdi-tablet-cellphone" },
 ]);
 
 const testing = () => {

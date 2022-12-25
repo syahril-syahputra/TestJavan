@@ -26,6 +26,7 @@
       <v-table>
         <thead>
           <tr>
+            <th class="text-left">No</th>
             <th class="text-left">Name</th>
             <th class="text-left">Gender</th>
             <th class="text-left">Parent</th>
@@ -33,7 +34,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in proses.result" :key="item.id">
+          <tr v-for="(item, index) in proses.result" :key="item.id">
+            <td>{{ index + 1 }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.titleGender }}</td>
             <td>{{ item.parentName }}</td>

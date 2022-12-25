@@ -26,11 +26,13 @@
       <v-table>
         <thead>
           <tr>
+            <th class="text-left">No</th>
             <th class="text-left">Asset Name</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in proses.result" :key="item.idAssets">
+          <tr v-for="(item, index) in proses.result" :key="item.idAssets">
+            <td>{{ index + 1 }}</td>
             <td>{{ item.titleAssets }}</td>
             <td>
               <v-btn
