@@ -6,7 +6,7 @@ Stack yang di gunakan :
 
 Front End : NUXT 3 (SSR mode on) with VUE 3 composition API, and UI Framework Using Vuetify 3
 Back End : Using Express JS v4.18.2
-Database : MySQL v4.18.2
+Database : MySQL v8.0.31
 
 Node Version : v16.14.2
 
