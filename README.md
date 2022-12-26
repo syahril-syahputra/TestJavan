@@ -20,7 +20,7 @@ Untuk cara menjalankan
       buka browser lalu akses http://localhost:8080
    2. server -> berisi source code untuk back end.
       masukan yarn untuk menginstall seluruh package LALU KETIK yarn start untuk mulai menjalankan API. untuk API berada di port 3500
-      coba akses http://localhost:3400
+      coba akses http://localhost:3500
       jika ada pesan "Ini Adalah API Untuk Data Yang Akan Digunakan" maka API telah di jalankan
    3. database -> disini hanya berisi 1 file saja. untuk import ke database
       buka terminal lalu ketik mysql -uroot -p <namadatabase> < data.sql
