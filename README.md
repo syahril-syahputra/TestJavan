@@ -38,7 +38,7 @@ untuk Fitur
 2. menambahkan data asset ke orang
 3. menampilkan total asset setiap orang berdasarkan price
 4. udah responsive namun belum sempurna
-5. dork mode dan light mode untuk di front end
+5. dark mode dan light mode untuk di front end
 6. untuk Server side render udah namun belum diset untuk PWA.
 7. untuk live demo belum siap karna keterbatasan waktu. namun mungkin nanti saya bisa upload ke https://heroku.com dan https://netlify.com untuk BE dan FE nya.
 
